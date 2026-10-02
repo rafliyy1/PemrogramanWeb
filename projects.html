@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 50:'#EEF7FF',100:'#D6ECFE',400:'#5AB2E8',600:'#1C7FBF',700:'#166295',800:'#124B73',900:'#0F3A5A' },
+          amber: { 50:'#FCF3E4',100:'#F8E2BB',300:'#F0C070',400:'#EAA945',500:'#E2962B',600:'#C97F1E',700:'#A8631A' },
+          paper: '#EEF1F0',
+          line: '#D8DDD9',
+          slate2: '#4B5A63',
+          green2: { 500:'#2F6F55',600:'#255A44' }
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"','sans-serif'],
+          sans: ['Inter','sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:#EEF1F0;color:#0F3A5A;}
+  .font-display{font-family:'Space Grotesk',sans-serif;}
+  ::selection{background:#E2962B;color:#0F3A5A;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline:2px solid #E2962B;outline-offset:3px;
+  }
+  .panel-grid{
+    background-image:
+      linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+    background-size:44px 44px;
+  }
+  #mobile-menu{transition:max-height .35s cubic-bezier(.4,0,.2,1), opacity .25s ease;}
+  .nav-link.active{color:#0F3A5A;font-weight:500;}
+  .nav-link.active::after{content:"";display:block;height:1px;background:#E2962B;margin-top:6px;}
+  .category-section{transition:box-shadow .5s ease;}
+  .category-section.highlight{box-shadow:0 0 0 2px #E2962B;border-radius:4px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+  }
+</style>
+<title>Proyek | PT Baskara Pradana</title>
+<meta name="description" content="Portofolio proyek instalasi tenaga surya PT Baskara Pradana di berbagai sektor, wilayah Indonesia, dan mancanegara.">
+</head>
+<body class="antialiased">
+<header class="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="flex h-20 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="Kembali ke beranda PT Baskara Pradana">
+        <img src="LogoPTBaskaraPradana.jpg" alt="Logo PT Baskara Pradana" class="h-8 w-8 object-contain">
+        <span class="font-display text-navy-900 text-lg tracking-tight leading-none">PT Baskara Pradana</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-sm">
+        <a href="about.html" class="nav-link text-slate2 hover:text-navy-900 transition-colors">Tentang kami</a>
+        <a href="services.html" class="nav-link text-slate2 hover:text-navy-900 transition-colors">Layanan</a>
+        <a href="projects.html" class="nav-link active">Proyek</a>
+        <a href="sustainability.html" class="nav-link text-slate2 hover:text-navy-900 transition-colors">Keberlanjutan</a>
+        <a href="career.html" class="nav-link text-slate2 hover:text-navy-900 transition-colors">Karier</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="contact.html" class="inline-flex items-center rounded-sm bg-amber-400 px-5 py-2.5 text-sm font-medium text-navy-900 hover:bg-amber-300 transition-colors">Hubungi kami</a>
+      </div>
+      <button id="menu-toggle" aria-label="Buka menu" aria-expanded="false" class="lg:hidden text-navy-900">
+        <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+        <svg id="icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden opacity-0 bg-white border-t border-line">
+    <nav class="flex flex-col px-6 py-5 gap-4 text-sm">
+      <a href="about.html" class="nav-link text-slate2">Tentang kami</a>
+      <a href="services.html" class="nav-link text-slate2">Layanan</a>
+      <a href="projects.html" class="nav-link text-slate2">Proyek</a>
+      <a href="sustainability.html" class="nav-link text-slate2">Keberlanjutan</a>
+      <a href="career.html" class="nav-link text-slate2">Karier</a>
+      <a href="contact.html" class="mt-2 inline-flex justify-center rounded-sm bg-amber-400 px-5 py-2.5 font-medium text-navy-900">Hubungi kami</a>
+    </nav>
+  </div>
+</header>
+<main class="pt-20">
+
+<section class="relative overflow-hidden bg-cover bg-center" style="background-image:url('HeroProyek.jpg');">
+  <div class="absolute inset-0 bg-navy-900/40"></div>
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-10 py-20">
+    <p class="text-amber-400 text-sm font-medium mb-4">Proyek</p>
+    <h1 class="font-display text-white text-4xl sm:text-5xl leading-tight max-w-2xl">Lebih dari 120 instalasi tersebar di 18 provinsi dan mancanegara</h1>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-6 lg:px-10 py-24">
+  <div class="flex flex-wrap gap-3 mb-12" id="project-filters">
+    <button data-target="cat-semua" class="filter-btn active px-4 py-2 text-sm rounded-sm border border-navy-900">Semua</button>
+    <button data-target="cat-industri" class="filter-btn px-4 py-2 text-sm rounded-sm border border-line">Industri</button>
+    <button data-target="cat-komersial" class="filter-btn px-4 py-2 text-sm rounded-sm border border-line">Komersial</button>
+    <button data-target="cat-residensial" class="filter-btn px-4 py-2 text-sm rounded-sm border border-line">Residensial</button>
+    <button data-target="cat-internasional" class="filter-btn px-4 py-2 text-sm rounded-sm border border-line">Internasional</button>
+  </div>
+  <div id="cat-semua-top"></div>
+  <div id="project-list">
+    <div id="cat-industri" class="category-section scroll-mt-28 mb-16 last:mb-0">
+    <h2 class="font-display text-2xl mb-6">Industri</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="atapPabrik.jpg" alt="PLTS Atap Pabrik Tekstil Nusantara" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Cikarang</p>
+        <p class="font-display text-lg mt-2">PLTS Atap Pabrik Tekstil Nusantara</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 4.2 MWp, beroperasi sejak 2023.</p>
+      </div>
+    </div>
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="pabrikOtomotif.jpg" alt="Pabrik Komponen Otomotif Cipta Laju" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Karawang</p>
+        <p class="font-display text-lg mt-2">Pabrik Komponen Otomotif Cipta Laju</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 3.1 MWp, beroperasi sejak 2024.</p>
+      </div>
+    </div>
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="pabrikBaja.jpg" alt="Pabrik Pengolahan Baja Wira Perkasa" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Gresik</p>
+        <p class="font-display text-lg mt-2">Pabrik Pengolahan Baja Wira Perkasa</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 5.8 MWp, beroperasi sejak 2021.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div id="cat-komersial" class="category-section scroll-mt-28 mb-16 last:mb-0">
+    <h2 class="font-display text-2xl mb-6">Komersial</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="pergudanganJaya.jpg" alt="Kawasan Pergudangan Jaya Logistik" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Surabaya</p>
+        <p class="font-display text-lg mt-2">Kawasan Pergudangan Jaya Logistik</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 1.8 MWp, beroperasi sejak 2024.</p>
+      </div>
+    </div>
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="pusatBelanja.jpg" alt="Mal Pusat Perbelanjaan Kota Lama" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Semarang</p>
+        <p class="font-display text-lg mt-2">Mal Pusat Perbelanjaan Kota Lama</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 2.4 MWp, beroperasi sejak 2023.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div id="cat-residensial" class="category-section scroll-mt-28 mb-16 last:mb-0">
+    <h2 class="font-display text-2xl mb-6">Residensial</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="perumahanGriya.jpg" alt="Perumahan Griya Matahari Residence" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Pontianak</p>
+        <p class="font-display text-lg mt-2">Perumahan Griya Matahari Residence</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 0.6 MWp, beroperasi sejak 2025.</p>
+      </div>
+    </div>
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="perumahanBukit.jpg" alt="Perumahan Bukit Hijau" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Kubu Raya</p>
+        <p class="font-display text-lg mt-2">Perumahan Bukit Hijau</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 0.9 MWp, beroperasi sejak 2025.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div id="cat-internasional" class="category-section scroll-mt-28 mb-16 last:mb-0">
+    <h2 class="font-display text-2xl mb-6">Internasional</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="atapGudang.jpg" alt="Atap Gudang Distribusi ASEAN Logistics" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Kuala Lumpur, Malaysia</p>
+        <p class="font-display text-lg mt-2">Atap Gudang Distribusi ASEAN Logistics</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 2.0 MWp, beroperasi sejak 2024.</p>
+      </div>
+    </div>
+      <div class="border border-line rounded-sm overflow-hidden">
+      <div class="h-40 bg-navy-800"><img src="manila.jpg" alt="Kawasan Industri Timur Manila" class="w-full h-full object-cover"></div>
+      <div class="p-6">
+        <p class="text-xs text-amber-600 font-medium">Manila, Filipina</p>
+        <p class="font-display text-lg mt-2">Kawasan Industri Timur Manila</p>
+        <p class="mt-2 text-sm text-slate2">Kapasitas 3.4 MWp, beroperasi sejak 2023.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="bg-navy-900 panel-grid">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10 py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="font-display text-3xl text-white leading-tight">Tertarik untuk mencoba energi ramah lingkungan?</h2>
+      <p class="mt-4 text-white/65 leading-relaxed max-w-md">Ceritakan kebutuhan listrik Anda, tim kami akan membantu menghitung potensi penghematannya.</p>
+    </div>
+    <div class="md:justify-self-end">
+      <a href="contact.html" class="inline-flex items-center rounded-sm bg-amber-400 px-7 py-3.5 text-sm font-medium text-navy-900 hover:bg-amber-300 transition-colors">Hubungi kami</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="bg-white text-slate2 border-t border-line">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10 py-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="LogoPTBaskaraPradana.jpg" alt="Logo PT Baskara Pradana" class="h-6 w-6 object-contain">
+        <span class="font-display text-navy-900">PT Baskara Pradana</span>
+      </div>
+      <p class="text-sm leading-relaxed max-w-xs">Penyedia solusi tenaga surya untuk masa depan yang lebih baik.</p>
+    </div>
+    <div>
+      <p class="font-display text-navy-900 text-sm mb-4">Alamat kantor</p>
+      <ul class="space-y-2 text-sm">
+        <li>Jl. Raya Sungai Rengas<br>Pontianak, Kalimantan Barat</li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-display text-navy-900 text-sm mb-4">Kontak kami</p>
+      <ul class="space-y-2 text-sm">
+        <li>+62 561 745 100</li>
+        <li>info@baskarapradana.co.id</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-line">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate2/70">
+      <p>&copy; 2026 PT Baskara Pradana.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 50:'#EEF7FF',100:'#D6ECFE',400:'#5AB2E8',600:'#1C7FBF',700:'#166295',800:'#124B73',900:'#0F3A5A' },
+          amber: { 50:'#FCF3E4',100:'#F8E2BB',300:'#F0C070',400:'#EAA945',500:'#E2962B',600:'#C97F1E',700:'#A8631A' },
+          paper: '#EEF1F0',
+          line: '#D8DDD9',
+          slate2: '#4B5A63',
+          green2: { 500:'#2F6F55',600:'#255A44' }
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"','sans-serif'],
+          sans: ['Inter','sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:#EEF1F0;color:#0F3A5A;}
+  .font-display{font-family:'Space Grotesk',sans-serif;}
+  ::selection{background:#E2962B;color:#0F3A5A;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline:2px solid #E2962B;outline-offset:3px;
+  }
+  .panel-grid{
+    background-image:
+      linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+    background-size:44px 44px;
+  }
+  #mobile-menu{transition:max-height .35s cubic-bezier(.4,0,.2,1), opacity .25s ease;}
+  .nav-link.active{color:#0F3A5A;font-weight:500;}
+  .nav-link.active::after{content:"";display:block;height:1px;background:#E2962B;margin-top:6px;}
+  .category-section{transition:box-shadow .5s ease;}
+  .category-section.highlight{box-shadow:0 0 0 2px #E2962B;border-radius:4px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+  }
+</style>
+<title>Tentang Kami | PT Baskara Pradana</title>
+<meta name="description" content="Profil perusahaan, visi misi, keunggulan, dan manajemen PT Baskara Pradana.">
+</head>
+<body class="antialiased">
+<header class="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="flex h-20 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="Kembali ke beranda PT Baskara Pradana">
+        <img src="LogoPTBaskaraPradana.jpg" alt="Logo PT Baskara Pradana" class="h-8 w-8 object-contain">
+        <span class="font-display text-navy-900 text-lg tracking-tight leading-none">PT Baskara Pradana</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-sm">
+        <a href="about.html" class="nav-link active">Tentang kami</a>
+        <a href="services.html" class="nav-link text-slate2 hover:text-navy-900 transition-colors">Layanan</a>
+        <a href="projects.html" class="nav-link text-slate2 hover:text-navy-900 transition-colors">Proyek</a>
+        <a href="sustainability.html" class="nav-link text-slate2 hover:text-navy-900 transition-colors">Keberlanjutan</a>
+        <a href="career.html" class="nav-link text-slate2 hover:text-navy-900 transition-colors">Karier</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="contact.html" class="inline-flex items-center rounded-sm bg-amber-400 px-5 py-2.5 text-sm font-medium text-navy-900 hover:bg-amber-300 transition-colors">Hubungi kami</a>
+      </div>
+      <button id="menu-toggle" aria-label="Buka menu" aria-expanded="false" class="lg:hidden text-navy-900">
+        <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+        <svg id="icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden opacity-0 bg-white border-t border-line">
+    <nav class="flex flex-col px-6 py-5 gap-4 text-sm">
+      <a href="about.html" class="nav-link text-slate2">Tentang kami</a>
+      <a href="services.html" class="nav-link text-slate2">Layanan</a>
+      <a href="projects.html" class="nav-link text-slate2">Proyek</a>
+      <a href="sustainability.html" class="nav-link text-slate2">Keberlanjutan</a>
+      <a href="career.html" class="nav-link text-slate2">Karier</a>
+      <a href="contact.html" class="mt-2 inline-flex justify-center rounded-sm bg-amber-400 px-5 py-2.5 font-medium text-navy-900">Hubungi kami</a>
+    </nav>
+  </div>
+</header>
+<main class="pt-20">
+
+<section class="relative overflow-hidden bg-cover bg-center" style="background-image:url('HeroAbout.jpg');">
+  <div class="absolute inset-0 bg-navy-900/40"></div>
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-10 py-20">
+    <p class="text-amber-400 text-base font-medium mb-4">Tentang kami</p>
+    <h1 class="font-display text-white text-4xl sm:text-5xl leading-tight max-w-2xl">Dimulai dari satu proyek atap pabrik, kini melistriki puluhan kawasan industri</h1>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-6 lg:px-10 py-24 grid lg:grid-cols-3 gap-12">
+  <div class="lg:col-span-1">
+    <h2 class="font-display text-2xl">Profil perusahaan</h2>
+  </div>
+  <div class="lg:col-span-2 space-y-5 text-slate2 leading-relaxed">
+    <p>PT Baskara Pradana didirikan pada 2016 oleh tiga insinyur di Bandung, dimulai dari satu proyek PLTS atap berkapasitas 200 kWp untuk sebuah pabrik garmen. Dari sana, permintaan terus tumbuh seiring semakin banyak perusahaan yang ingin menekan biaya listrik sekaligus mengurangi jejak karbon operasional mereka.
+    Kini hampir satu dekade kemudian kami telah memasang lebih dari 230 MWp kapasitas terpasang di berbagai tempat, melayani skala rumahan, industri, hingga komersial.</p>
+  </div>
+</section>
+
+<section class="bg-white border-y border-line">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10 py-24 grid md:grid-cols-2 gap-12">
+    <div class="border-l-2 border-amber-400 pl-6">
+      <h2 class="font-display text-2xl">Visi</h2>
+      <p class="mt-4 text-slate2 leading-relaxed">Menjadi mitra utama transisi energi bersih bagi segala skala di wilayah Indonesia dan luar negeri untuk memberikan kontribusi menuju masa depan yang lebih hijau untuk bumi.</p>
+    </div>
+    <div class="border-l-2 border-amber-400 pl-6">
+      <h2 class="font-display text-2xl">Misi</h2>
+      <ul class="mt-4 space-y-3 text-slate2 leading-relaxed list-disc pl-4">
+        <li> Menyediakan sistem tenaga surya yang aman, efisien, dan terukur.</li>
+        <li> Memperluas akses energi bersih lewat skema pembiayaan yang fleksibel.</li>
+        <li> Mengembangkan talenta lokal di bidang rekayasa energi terbarukan.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-6 lg:px-10 py-24">
+  <h2 class="font-display text-2xl mb-10">Keunggulan kami</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line">
+    <div class="bg-paper p-6">
+      <p class="font-display">Keselamatan kerja terverifikasi</p>
+      <p class="mt-2 text-sm text-slate2 leading-relaxed">Setiap instalasi mengikuti standar keselamatan dan diawasi berkala oleh pihak bersertifikasi.</p>
+    </div>
+    <div class="bg-paper p-6">
+      <p class="font-display">Sistem pemantauan langsung</p>
+      <p class="mt-2 text-sm text-slate2 leading-relaxed">Produksi listrik tiap unit dapat dipantau klien secara real-time lewat dashboard yang kami sediakan.</p>
+    </div>
+    <div class="bg-paper p-6">
+      <p class="font-display">Garansi komponen 25 tahun</p>
+      <p class="mt-2 text-sm text-slate2 leading-relaxed">Panel dan inverter yang kami pasang bergaransi jangka panjang dari produsen terpercaya.</p>
+    </div>
+    <div class="bg-paper p-6">
+      <p class="font-display">Presisi dalam setiap desain</p>
+      <p class="mt-2 text-sm text-slate2 leading-relaxed">Setiap desain dihitung ulang agar sesuai kondisi lapangan yang sesungguhnya bukan asumsi di atas kertas.</p>
+    </div>
+    <div class="bg-paper p-6">
+      <p class="font-display">Keterbukaan data</p>
+      <p class="mt-2 text-sm text-slate2 leading-relaxed">Klien memiliki akses penuh terhadap data produksi listrik mereka sendiri kapan saja.</p>
+    </div>
+    <div class="bg-paper p-6">
+      <p class="font-display">Portofolio lintas sektor</p>
+      <p class="mt-2 text-sm text-slate2 leading-relaxed">Dari skala rumahan, industri, hingga komersial dengan harga yang ramah di kantong.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white border-t border-line">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10 py-24">
+    <h2 class="font-display text-2xl mb-10">Manajemen</h2>
+    <div class="space-y-6">
+      <div class="border border-line rounded-sm overflow-hidden flex flex-col sm:flex-row">
+        <div class="sm:w-52 h-48 sm:h-auto shrink-0"><img src="rangga.png" alt="Foto Rangga Hutama" class="w-full h-full object-cover"></div>
+        <div class="p-6 flex flex-col justify-center">
+          <p class="font-display text-lg">Rangga Hutama</p>
+          <p class="text-sm text-amber-600 font-medium mt-1">Direktur Utama</p>
+          <p class="mt-3 text-sm text-slate2 leading-relaxed">Memimpin arah strategis perusahaan dengan lebih dari 15 tahun pengalaman di industri energi terbarukan.</p>
+        </div>
+      </div>
+      <div class="border border-line rounded-sm overflow-hidden flex flex-col sm:flex-row">
+        <div class="sm:w-52 h-48 sm:h-auto shrink-0"><img src="amira.png" alt="Foto Amira Sudrajat" class="w-full h-full object-cover"></div>
+        <div class="p-6 flex flex-col justify-center">
+          <p class="font-display text-lg">Amira Sudrajat</p>
+          <p class="text-sm text-amber-600 font-medium mt-1">Direktur Teknik</p>
+          <p class="mt-3 text-sm text-slate2 leading-relaxed">Bertanggung jawab atas standar rekayasa dan kualitas setiap instalasi yang kami kerjakan.</p>
+        </div>
+      </div>
+      <div class="border border-line rounded-sm overflow-hidden flex flex-col sm:flex-row">
+        <div class="sm:w-52 h-48 sm:h-auto shrink-0"><img src="danu.png" alt="Foto Danu Wicaksana" class="w-full h-full object-cover"></div>
+        <div class="p-6 flex flex-col justify-center">
+          <p class="font-display text-lg">Danu Wicaksana</p>
+          <p class="text-sm text-amber-600 font-medium mt-1">Direktur Operasional</p>
+          <p class="mt-3 text-sm text-slate2 leading-relaxed">Mengawasi seluruh proyek berjalan agar selesai tepat waktu dan sesuai standar keselamatan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy-900 panel-grid">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10 py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="font-display text-3xl text-white leading-tight">Siap beralih ke energi surya?</h2>
+      <p class="mt-4 text-white/65 leading-relaxed max-w-md">Ceritakan kebutuhan listrik Anda, tim kami akan membantu menghitung potensi penghematannya.</p>
+    </div>
+    <div class="md:justify-self-end">
+      <a href="contact.html" class="inline-flex items-center rounded-sm bg-amber-400 px-7 py-3.5 text-sm font-medium text-navy-900 hover:bg-amber-300 transition-colors">Hubungi kami</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="bg-white text-slate2 border-t border-line">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10 py-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="LogoPTBaskaraPradana.jpg" alt="Logo PT Baskara Pradana" class="h-6 w-6 object-contain">
+        <span class="font-display text-navy-900">PT Baskara Pradana</span>
+      </div>
+      <p class="text-sm leading-relaxed max-w-xs">Penyedia solusi tenaga surya untuk masa depan yang lebih baik.</p>
+    </div>
+    <div>
+      <p class="font-display text-navy-900 text-sm mb-4">Alamat kantor</p>
+      <ul class="space-y-2 text-sm">
+        <li>Jl. Raya Sungai Rengas<br>Pontianak, Kalimantan Barat</li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-display text-navy-900 text-sm mb-4">Kontak kami</p>
+      <ul class="space-y-2 text-sm">
+        <li>+62 561 745 100</li>
+        <li>info@baskarapradana.co.id</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-line">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate2/70">
+      <p>&copy; 2026 PT Baskara Pradana.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
